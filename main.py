@@ -5,7 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from excel import getreport
 from mail import sendmail
-
 from ssologin import ssologin
 from tickets import getalltickets
 

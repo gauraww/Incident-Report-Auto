@@ -1,4 +1,5 @@
 import win32com.client
+import pygetwindow
 from datetime import datetime
 
 def sendmail(filename, breach_count):
@@ -40,6 +41,22 @@ def sendmail(filename, breach_count):
 
     # Send the email
     # mail.Send()
+
+    # Get the titles of all visible windows
+    windows = pygetwindow.getAllTitles()
+        
+    # Check if any window title contains "Excel"
+    for window_title in windows:
+        if "TTO" in window_title:
+            # Switch to the Excel window
+            excel_window = pygetwindow.getWindowsWithTitle(window_title)
+            if excel_window:
+                excel_window[0].activate()
+                print(f"Switched to window: {window_title}")
+                break  # Stop searching for other Excel windows
+    else:
+        print("TTO report window not found.")
+        exit()
 
     return True
 

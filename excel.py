@@ -2,20 +2,43 @@ import pandas as pd
 import pyautogui
 from datetime import datetime
 import time
+import win32com.client as win32
+import pygetwindow
 
 def getreport():
-    # After copying the tickets, open Microsoft Excel
-    pyautogui.hotkey('win', 'r')  # Open the Run dialog
-    time.sleep(1)
-    pyautogui.write('excel')  # Type 'excel' and press Enter to open Excel
-    pyautogui.press('enter')
+
+    existing_file_path = r"C:\Users\gsingh369\OneDrive - DXC Production\Documents\Python Projects\Incident Report Auto\blanksheet.xlsx"
+    excel = win32.gencache.EnsureDispatch('Excel.Application')
+    excel.Workbooks.Open(existing_file_path)
+    excel.Visible = True
+
+    # # After copying the tickets, open Microsoft Excel
+    # pyautogui.hotkey('win', 'r')  # Open the Run dialog
+    # time.sleep(1)
+    # pyautogui.write('excel')  # Type 'excel' and press Enter to open Excel
+    # pyautogui.press('enter')
 
     # Wait for Excel to open
     time.sleep(5)  # Adjust the time as needed
 
-    pyautogui.press('enter')
+        
+    # Get the titles of all visible windows
+    windows = pygetwindow.getAllTitles()
 
-    time.sleep(3)
+    # Check if any window title contains "Excel"
+    for window_title in windows:
+        if "Excel" in window_title:
+            # Switch to the Excel window
+            excel_window = pygetwindow.getWindowsWithTitle(window_title)
+            if excel_window:
+                excel_window[0].activate()
+                print(f"Switched to window: {window_title}")
+                break  # Stop searching for other Excel windows
+    else:
+        print("Excel window not found.")
+        exit()
+
+    time.sleep(2)
 
     # Paste the copied data into Excel
     pyautogui.hotkey('ctrl', 'v')
@@ -80,7 +103,19 @@ def getreport():
     # Adjust column E and F to fit content
     pyautogui.press('right')
     time.sleep(1)
-    pyautogui.hotkey('shift', 'right',interval=0.2)
+    pyautogui.hotkey('alt', 'h')  # Open the Home tab
+    time.sleep(1)
+    pyautogui.press('o')  # Select 'Format' dropdown
+    time.sleep(1)
+    pyautogui.press('w')  # Select 'AutoFit Column Width'
+    time.sleep(1)
+    pyautogui.write('25')
+    time.sleep(1)
+    pyautogui.press('enter')
+    time.sleep(1)
+
+    # Adjust column E and F to fit content
+    pyautogui.press('right')
     time.sleep(1)
     pyautogui.hotkey('alt', 'h')  # Open the Home tab
     time.sleep(1)
@@ -110,6 +145,11 @@ def getreport():
     pyautogui.typewrite(file_name)  # Type the file name
     time.sleep(2)
     pyautogui.press('enter')  # Save the file
+    time.sleep(2)
+    pyautogui.hotkey('alt', 'f4')
+    time.sleep(1)
+    pyautogui.press(['right','enter'], interval=1)  # Save the file
+    time.sleep(3)
 
     # Read the Excel file into a pandas DataFrame
     excel_file = f"{file_path}\{file_name}"
@@ -123,5 +163,3 @@ def getreport():
     print(slt_breached_count)
 
     return(slt_breached_count, excel_file)
-
-

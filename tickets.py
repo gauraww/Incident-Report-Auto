@@ -74,15 +74,17 @@ def getalltickets(wait, driver):
     print(new_datetime_str)
     time.sleep(1)
     pyautogui.write(new_datetime_str)
-    time.sleep(1)
+    time.sleep(5)
     pyautogui.press('enter')
 
-    time.sleep(15)
+    time.sleep(20)
 
-    pyautogui.press('tab', presses=91, interval=0.1)
-    pyautogui.press('enter')
+    pyautogui.click(x=1835, y=295)
 
-    time.sleep(10)
+    # pyautogui.press('tab', presses=95, interval=0.1)
+    # pyautogui.press('enter')
+
+    time.sleep(3)
     pyautogui.hotkey('win', 'up')
     time.sleep(1)
     pyautogui.hotkey('ctrl', 'a')
