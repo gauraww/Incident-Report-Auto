@@ -1,5 +1,5 @@
-import pyautogui
-import time
+from pyautogui import press, typewrite
+from time import sleep
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -25,23 +25,23 @@ def ssologin(wait, driver, credentials):
     button = driver.find_element(By.XPATH, button_xpath)
     button.click()
 
-    time.sleep(2)
-    pyautogui.press("tab")
-    time.sleep(1)
-    pyautogui.press("enter")
-    time.sleep(2)
+    sleep(2)
+    press("tab")
+    sleep(0.5)
+    press("enter")
+    sleep(1)
 
-    pyautogui.press("tab")
-    time.sleep(1)
-    pyautogui.press("enter")
-    time.sleep(1)
+    press("tab")
+    sleep(0.5)
+    press("enter")
+    sleep(1)
 
-    pyautogui.press("tab")
-    time.sleep(1)
-    pyautogui.press("tab")
-    time.sleep(1)
-    pyautogui.press("enter")
-    time.sleep(1)
-    pyautogui.typewrite(credentials["pin"], interval=0.1)
-    time.sleep(1)
-    pyautogui.press("enter")
+    press("tab")
+    sleep(0.5)
+    press("tab")
+    sleep(0.5)
+    press("enter")
+    sleep(1)
+    typewrite(credentials["pin"], interval=0.1)
+    sleep(0.5)
+    press("enter")

@@ -49,15 +49,9 @@ def sendmail(filename, breach_count):
     for window_title in windows:
         if "TTO" in window_title:
             # Switch to the Excel window
-            excel_window = pygetwindow.getWindowsWithTitle(window_title)
-            if excel_window:
-                excel_window[0].activate()
-                print(f"Switched to window: {window_title}")
+            mail_window = pygetwindow.getWindowsWithTitle(window_title)
+            if mail_window:
+                mail_window[0].activate()
                 break  # Stop searching for other Excel windows
-    else:
-        print("TTO report window not found.")
-        exit()
-
-    return True
 
 
