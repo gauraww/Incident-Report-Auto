@@ -19,7 +19,7 @@ def getreport():
     # press('enter')
 
     # Wait for Excel to open
-    time.sleep(3)  # Adjust the time as needed
+    time.sleep(2)  # Adjust the time as needed
 
     # Get the titles of all visible windows
     windows = pygetwindow.getAllTitles()
@@ -30,95 +30,102 @@ def getreport():
             # Switch to the Excel window
             excel_window = pygetwindow.getWindowsWithTitle(window_title)
             if excel_window:
+                time.sleep(1)
                 excel_window[0].activate()
                 excel_window[0].maximize()
                 break  # Stop searching for other Excel windows
 
     # Paste the copied data into Excel
-    hotkey('ctrl', 'v')
+    # hotkey('ctrl', 'v')
+    # time.sleep(2)
+
+    hotkey('alt', 'h')  # Open the Home tab
+    time.sleep(2)
+    press(['v', 'm'], interval=2)
     time.sleep(2)
 
-    # center content
-    hotkey('ctrl', 'a')  # Select all cells
-    time.sleep(0.2)
-    hotkey('alt', 'h')  # Open the Home tab
-    time.sleep(0.2)
-    press(['a', 'm'], interval=0.5)
-    time.sleep(0.2)
-    hotkey('ctrl', 'a')  # Select all cells
-    time.sleep(0.2)
-    hotkey('alt', 'h')  # Open the Home tab
-    time.sleep(0.2)
-    press(['a', 'c'], interval=0.5)
-    time.sleep(0.2)
+    # # center content
+    # hotkey('ctrl', 'a')  # Select all cells
+    # time.sleep(0.2)
+    # hotkey('alt', 'h')  # Open the Home tab
+    # time.sleep(0.2)
+    # press(['a', 'm'], interval=0.5)
+    # time.sleep(0.2)
+    # hotkey('ctrl', 'a')  # Select all cells
+    # time.sleep(0.2)
+    # hotkey('alt', 'h')  # Open the Home tab
+    # time.sleep(0.2)
+    # press(['a', 'c'], interval=0.5)
+    # time.sleep(0.2)
 
-    # Adjust column width to fit content
-    hotkey('ctrl', 'a')  # Select all cells
-    time.sleep(0.2)
-    hotkey('alt', 'h')  # Open the Home tab
-    time.sleep(0.2)
-    press('o')  # Select 'Format' dropdown
-    time.sleep(0.2)
-    press('w')  # Select 'AutoFit Column Width'
-    time.sleep(0.2)
-    write('10')
-    time.sleep(0.2)
-    press('enter') 
-    time.sleep(0.2)
+    # # Adjust column width to fit content
+    # hotkey('ctrl', 'a')  # Select all cells
+    # time.sleep(0.2)
+    # hotkey('alt', 'h')  # Open the Home tab
+    # time.sleep(0.2)
+    # press('o')  # Select 'Format' dropdown
+    # time.sleep(0.2)
+    # press('w')  # Select 'AutoFit Column Width'
+    # time.sleep(0.2)
+    # write('10')
+    # time.sleep(0.2)
+    # press('enter') 
+    # time.sleep(0.2)
 
-    # Adjust row height to fit content
-    hotkey('alt', 'h')  # Open the Home tab
-    time.sleep(0.2)
-    press('o')  # Select 'Format' dropdown
-    time.sleep(0.2)
-    press('h')  # Select 'AutoFit Column Width'
-    time.sleep(0.2)
-    write('30')
-    time.sleep(0.2)
-    press('enter') 
-    time.sleep(0.2)
+    # # Adjust row height to fit content
+    # hotkey('alt', 'h')  # Open the Home tab
+    # time.sleep(0.2)
+    # press('o')  # Select 'Format' dropdown
+    # time.sleep(0.2)
+    # press('h')  # Select 'AutoFit Column Width'
+    # time.sleep(0.2)
+    # write('30')
+    # time.sleep(0.2)
+    # press('enter') 
+    # time.sleep(0.2)
 
-    # Adjust column D to fit content
-    press('right', presses=3, interval=0.5)
-    time.sleep(0.2)
-    hotkey('alt', 'h')  # Open the Home tab
-    time.sleep(0.2)
-    press('o')  # Select 'Format' dropdown
-    time.sleep(0.2)
-    press('w')  # Select 'AutoFit Column Width'
-    time.sleep(0.2)
-    write('50')
-    time.sleep(0.2)
-    press('enter') 
-    time.sleep(0.2)
+    # # Adjust column D to fit content
+    # press('right', presses=3, interval=0.5)
+    # time.sleep(0.2)
+    # hotkey('alt', 'h')  # Open the Home tab
+    # time.sleep(0.2)
+    # press('o')  # Select 'Format' dropdown
+    # time.sleep(0.2)
+    # press('w')  # Select 'AutoFit Column Width'
+    # time.sleep(0.2)
+    # write('50')
+    # time.sleep(0.2)
+    # press('enter') 
+    # time.sleep(0.2)
 
-    # Adjust column E to fit content
-    press('right')
-    time.sleep(0.2)
-    hotkey('alt', 'h')  # Open the Home tab
-    time.sleep(0.2)
-    press('o')  # Select 'Format' dropdown
-    time.sleep(0.2)
-    press('w')  # Select 'AutoFit Column Width'
-    time.sleep(0.2)
-    write('25')
-    time.sleep(0.2)
-    press('enter')
-    time.sleep(0.2)
+    # # Adjust column E to fit content
+    # press('right')
+    # time.sleep(0.2)
+    # hotkey('alt', 'h')  # Open the Home tab
+    # time.sleep(0.2)
+    # press('o')  # Select 'Format' dropdown
+    # time.sleep(0.2)
+    # press('w')  # Select 'AutoFit Column Width'
+    # time.sleep(0.2)
+    # write('25')
+    # time.sleep(0.2)
+    # press('enter')
+    # time.sleep(0.2)
 
-    # Adjust column F to fit content
-    press('right')
-    time.sleep(0.2)
-    hotkey('alt', 'h')  # Open the Home tab
-    time.sleep(0.2)
-    press('o')  # Select 'Format' dropdown
-    time.sleep(0.2)
-    press('w')  # Select 'AutoFit Column Width'
-    time.sleep(0.2)
-    write('25')
-    time.sleep(0.2)
-    press('enter')
-    time.sleep(0.2)
+    # # Adjust column F to fit content
+    # press('right')
+    # time.sleep(0.2)
+    # hotkey('alt', 'h')  # Open the Home tab
+    # time.sleep(0.2)
+    # press('o')  # Select 'Format' dropdown
+    # time.sleep(0.2)
+    # press('w')  # Select 'AutoFit Column Width'
+    # time.sleep(0.2)
+    # write('25')
+    # time.sleep(0.2)
+    # press('enter')
+    # time.sleep(0.2)
+
 
     file_path = r'C:\Users\gsingh369\OneDrive - DXC Production\Desktop\Incident Reports\Sample'
     current_date = datetime.now().strftime("%d %B %Y")
@@ -136,24 +143,26 @@ def getreport():
     write(file_name)  # Type the file name
     time.sleep(1)
     press('enter')  # Save the file
-    time.sleep(1)
+    time.sleep(2)
 
     # Get the titles of all visible windows
     windows = pygetwindow.getAllTitles()
     
     # Check if any window title contains "Excel"
     for window_title in windows:
-        if "Confirm Save As" in window_title:
+        if "Confirm Save" in window_title:
             # Switch to the Excel window
             confirm_window = pygetwindow.getWindowsWithTitle(window_title)
             if confirm_window:
+                time.sleep(1)
                 confirm_window[0].activate()
                 time.sleep(1)
                 press(['left', 'enter'], interval=0.5)
                 break  # Stop searching for other Excel windows
 
+    time.sleep(1)
     hotkey('alt', 'f4')
-    time.sleep(3)
+    time.sleep(1)
 
     # Read the Excel file into a pandas DataFrame
     excel_file = f"{file_path}\{file_name}"

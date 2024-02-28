@@ -31,10 +31,8 @@ except TimeoutException:
     driver.get(credentials["sm9url"])
     wait.until(EC.title_contains("Service Manager AMS"))
 
-getalltickets(wait, driver)                                                
+getalltickets(wait, driver)     
 
 breachcount, excelfile = getreport()
 
 sendmail(excelfile, breachcount)
-
-exit()

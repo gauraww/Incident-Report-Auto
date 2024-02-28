@@ -65,7 +65,7 @@ def getalltickets(wait, driver):
     sleep(1)
     datetime_obj = datetime.strptime(datetime_str, "%d/%m/%Y %H:%M:%S")
     new_datetime_obj = datetime_obj - timedelta(days=1)
-    new_datetime_obj = new_datetime_obj.replace(second=0)
+    new_datetime_obj = new_datetime_obj.replace(second=0)   
     new_datetime_str = new_datetime_obj.strftime("%d/%m/%Y %H:%M:%S")
     sleep(1)
     write(new_datetime_str)
@@ -86,7 +86,7 @@ def getalltickets(wait, driver):
     hotkey('ctrl', 'c')
 
     sleep(2)
-    hotkey('alt', 'f4')
+    # hotkey('alt', 'f4')
     sleep(1)
-    hotkey('alt', 'f4')
+    driver.quit()
 

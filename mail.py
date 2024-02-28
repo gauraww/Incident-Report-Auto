@@ -1,3 +1,4 @@
+import time
 import win32com.client
 import pygetwindow
 from datetime import datetime
@@ -42,6 +43,8 @@ def sendmail(filename, breach_count):
     # Send the email
     # mail.Send()
 
+    time.sleep(1)
+
     # Get the titles of all visible windows
     windows = pygetwindow.getAllTitles()
         
@@ -51,7 +54,6 @@ def sendmail(filename, breach_count):
             # Switch to the Excel window
             mail_window = pygetwindow.getWindowsWithTitle(window_title)
             if mail_window:
+                time.sleep(1)
                 mail_window[0].activate()
                 break  # Stop searching for other Excel windows
-
-

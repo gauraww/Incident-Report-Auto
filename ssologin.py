@@ -25,9 +25,9 @@ def ssologin(wait, driver, credentials):
     button = driver.find_element(By.XPATH, button_xpath)
     button.click()
 
+    # sleep(2)
+    # press("tab")
     sleep(2)
-    press("tab")
-    sleep(0.5)
     press("enter")
     sleep(1)
 
