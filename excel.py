@@ -19,7 +19,7 @@ def getreport():
     # press('enter')
 
     # Wait for Excel to open
-    time.sleep(2)  # Adjust the time as needed
+    time.sleep(3)  # Adjust the time as needed
 
     # Get the titles of all visible windows
     windows = pygetwindow.getAllTitles()
@@ -32,6 +32,7 @@ def getreport():
             if excel_window:
                 time.sleep(1)
                 excel_window[0].activate()
+                time.sleep(1)
                 excel_window[0].maximize()
                 break  # Stop searching for other Excel windows
 
@@ -128,7 +129,9 @@ def getreport():
 
 
     file_path = r'C:\Users\gsingh369\OneDrive - DXC Production\Desktop\Incident Reports\Sample'
-    current_date = datetime.now().strftime("%d %B %Y")
+    n = int(datetime.now().strftime("%d"))
+    suffix = {1: 'st', 2: 'nd', 3: 'rd'}.get(n if n < 20 else n % 10, 'th')
+    current_date = str(n) + suffix + datetime.now().strftime(" %B %Y")
     file_name = f'Last 24 hours TTO-TTIR-TTR breached incidents for {current_date}.xlsx'
 
     # Save the Excel file as 'Last 24 hours TTO-TTIR-TTR breached incidents for {current_date}.xlsx' at the specified location
@@ -165,7 +168,7 @@ def getreport():
     time.sleep(1)
 
     # Read the Excel file into a pandas DataFrame
-    excel_file = f"{file_path}\{file_name}"
+    excel_file = rf"{file_path}\{file_name}"
     df = read_excel(excel_file)
 
     # Check for rows where the "SLT Breached" column has the value "TRUE"

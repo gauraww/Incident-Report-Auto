@@ -74,19 +74,18 @@ def getalltickets(wait, driver):
 
     sleep(20)
 
-    click(x=1845, y=295)
+    click(x=1845, y=325)
 
     # press('tab', presses=95, interval=0.1)
     # press('enter')
 
     sleep(2)
     hotkey('win', 'up')
-    sleep(1)
+    sleep(3)
     hotkey('ctrl', 'a')
     hotkey('ctrl', 'c')
 
-    sleep(2)
-    # hotkey('alt', 'f4')
     sleep(1)
+    # hotkey('alt', 'f4')
     driver.quit()
 

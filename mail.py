@@ -3,6 +3,8 @@ import win32com.client
 import pygetwindow
 from datetime import datetime
 
+
+
 def sendmail(filename, breach_count):
 
     # Create an instance of the Outlook application
@@ -10,7 +12,9 @@ def sendmail(filename, breach_count):
 
     # Create a new email
     mail = outlook.CreateItem(0)
-    current_date = datetime.now().strftime("%d %B %Y")
+    n = int(datetime.now().strftime("%d"))
+    suffix = {1: 'st', 2: 'nd', 3: 'rd'}.get(n if n < 20 else n % 10, 'th')
+    current_date = str(n) + suffix + datetime.now().strftime(" %B %Y")
 
     # Set the subject
     subject = f"TTO/TTIR/TTR breached incidents info for the last 24 hours {current_date}"
