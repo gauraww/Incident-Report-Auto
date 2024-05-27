@@ -1,7 +1,7 @@
 cred.json
 test.py
-__pycache__/excel.cpython-311.pyc
-__pycache__/ssologin.cpython-311.pyc
-__pycache__/mail.cpython-311.pyc
-__pycache__/tickets.cpython-311.pyc
+__pycache__/excel.cpython-312.pyc
+__pycache__/ssologin.cpython-312.pyc
+__pycache__/mail.cpython-312.pyc
+__pycache__/tickets.cpython-312.pyc
 chromedriver.exe
